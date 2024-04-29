@@ -26,10 +26,6 @@ while (true)
   string sha512Hash = HashFunctions.GetSha512Hash(input);
   Console.WriteLine($"SHA512 Hash: {sha512Hash}");
 
-  // Additive Hashing
-  string additiveHash = HashFunctions.GetAdditiveHash(input);
-  Console.WriteLine($"Additive Hash: {additiveHash}");
-
   // Simple Hashing
   string simpleHash = HashFunctions.GetSimpleHash(input);
   Console.WriteLine($"Simple Hash: {simpleHash}");

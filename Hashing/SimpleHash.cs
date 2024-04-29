@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 
 /// <summary>
-/// This class is a simple hash algorithm that adds up all the bytes in the input.
+/// This class is a simple additive hash algorithm that adds up all the bytes in the input.
 /// It is not secure and only used as a bad example.
 /// </summary>
 public class SimpleHash : HashAlgorithm

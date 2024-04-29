@@ -49,14 +49,6 @@ public class HashFunctions
     }
   }
 
-  public static string GetAdditiveHash(string input)
-  {
-    using (AdditiveHash additiveHash = new AdditiveHash())
-    {
-      return ComputeHash(input, additiveHash);
-    }
-  }
-
   public static string GetSimpleHash(string input)
   {
     using (SimpleHash simpleHash = new SimpleHash())
