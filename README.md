@@ -1,22 +1,17 @@
-# Hash Function Demonstrator
+# Hash Function Demonstration
+
+This repository is made for educational purposes. I tested and played with Hash functions in different programming languages.
 
 ## Project Overview
 
+The project consists of the following examples:
+####  Cryptographic Hashing
+
 This C# application demonstrates the functionality and performance of various hash functions. It's designed as a learning tool for understanding how different hashing algorithms like MD5, SHA1, SHA256, SHA512, and a simple additive hash process input data to produce fixed-size outputs. The project focuses on showcasing the basic properties of these hash functions, including their security aspects and performance metrics.
 
-## Features
+#### Python
+Here is one example of two different images, that have the same image. This shows how collission can occur on completely different data.
 
-- **Multiple Hash Functions:** Support for MD5, SHA1, SHA256, SHA512, and a basic additive hash function.
-- **Performance Metrics:** Evaluate the time and computational resources required by each hashing algorithm.
-- **Security Discussion:** Overview of the cryptographic strength and vulnerabilities associated with each hash function.
-- **Interactive Testing:** Users can input their own data and get a hash output of all implemented Hash Functions.
-
-## Getting Started
-
-### Prerequisites
-
-- .NET SDK (version 8.0 or higher recommended)
-- An IDE that supports C# (Visual Studio, VSCode, etc.)
 
 ## Usage
 

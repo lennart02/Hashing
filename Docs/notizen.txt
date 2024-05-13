@@ -1,8 +1,0 @@
-\subsection{Fibonacci Hashing}
-
-
-Die Fibonacci Hashing Funktion wird wie folgt definiert:
-\[
-h(k) = \left\lfloor m \cdot (k \cdot F\mod 1) \right\rfloor
-\]
-wobei \( m \) die Größe der Tabelle ist, \( k \) der Schlüssel, und \( F \) der Faktor basierend auf dem goldenen Schnitt.
