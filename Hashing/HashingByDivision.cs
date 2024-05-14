@@ -4,11 +4,11 @@ using System.Security.Cryptography;
 /// This class is a simple additive hash algorithm that adds up all the bytes in the input.
 /// It is not secure and only used as a bad example.
 /// </summary>
-public class SimpleHash : HashAlgorithm
+public class HashingByDivision : HashAlgorithm
 {
   private int _hash;
 
-  public SimpleHash()
+  public HashingByDivision()
   {
     _hash = 0;
   }
@@ -22,7 +22,7 @@ public class SimpleHash : HashAlgorithm
   {
     for (int i = ibStart; i < ibStart + cbSize; i++)
     {
-      _hash += array[i];
+      _hash += array[i] % int.MaxValue;// Math.Pow(2, 32);
     }
   }
 

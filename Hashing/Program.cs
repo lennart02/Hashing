@@ -11,22 +11,26 @@ while (true)
 
 
   // MD5 Hashing
-  string md5Hash = HashFunctions.GetMd5Hash(input);
+  string md5Hash = CryptographicHashFunctions.GetMd5Hash(input);
   Console.WriteLine($"MD5 Hash:    {md5Hash}");
 
   // SHA1 Hashing
-  string sha1Hash = HashFunctions.GetSha1Hash(input);
+  string sha1Hash = CryptographicHashFunctions.GetSha1Hash(input);
   Console.WriteLine($"SHA1 Hash:   {sha1Hash}");
 
   // SHA256 Hashing
-  string sha256Hash = HashFunctions.GetSha256Hash(input);
+  string sha256Hash = CryptographicHashFunctions.GetSha256Hash(input);
   Console.WriteLine($"SHA256 Hash: {sha256Hash}");
 
   // SHA512 Hashing
-  string sha512Hash = HashFunctions.GetSha512Hash(input);
+  string sha512Hash = CryptographicHashFunctions.GetSha512Hash(input);
   Console.WriteLine($"SHA512 Hash: {sha512Hash}");
 
-  // Simple Hashing
-  string simpleHash = HashFunctions.GetSimpleHash(input);
-  Console.WriteLine($"Simple Hash: {simpleHash}");
+  // Hashing By Division
+  string divisionHash = CryptographicHashFunctions.GetHashByDivision(input);
+  Console.WriteLine($"Hash By Division: {divisionHash}");
+
+  // Hashing By Multiplication
+  string multiplicationHash = CryptographicHashFunctions.GetHashByMultiplication(input);
+  Console.WriteLine($"Hash By Multiplication: {multiplicationHash}");
 }

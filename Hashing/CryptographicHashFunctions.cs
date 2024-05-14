@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-public class HashFunctions
+public class CryptographicHashFunctions
 {
   private static string ComputeHash(string input, HashAlgorithm algorithm)
   {
@@ -49,9 +49,17 @@ public class HashFunctions
     }
   }
 
-  public static string GetSimpleHash(string input)
+public static string GetHashByDivision(string input)
   {
-    using (SimpleHash simpleHash = new SimpleHash())
+    using (HashingByDivision simpleHash = new HashingByDivision())
+    {
+      return ComputeHash(input, simpleHash);
+    }
+  }
+
+  public static string GetHashByMultiplication(string input)
+  {
+    using (HashingByMultiplication simpleHash = new HashingByMultiplication())
     {
       return ComputeHash(input, simpleHash);
     }

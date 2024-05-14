@@ -12,7 +12,7 @@ public class PerformanceTesting
     stopwatch.Start();
     for (int i = 0; i < ITERATIONS; i++)
     {
-      HashFunctions.GetMd5Hash("Hello, World!");
+      CryptographicHashFunctions.GetMd5Hash("Hello, World!");
     }
     stopwatch.Stop();
     Console.WriteLine("Hashing Md5 Execution Time: " + stopwatch.Elapsed);
@@ -23,7 +23,7 @@ public class PerformanceTesting
     stopwatch.Start();
     for (int i = 0; i < ITERATIONS; i++)
     {
-      HashFunctions.GetSha1Hash("Hello, World!");
+      CryptographicHashFunctions.GetSha1Hash("Hello, World!");
     }
     stopwatch.Stop();
     Console.WriteLine("Hashing Sha1 Execution Time: " + stopwatch.Elapsed);
@@ -34,7 +34,7 @@ public class PerformanceTesting
     stopwatch.Start();
     for (int i = 0; i < ITERATIONS; i++)
     {
-      HashFunctions.GetSha256Hash("Hello, World!");
+      CryptographicHashFunctions.GetSha256Hash("Hello, World!");
     }
     stopwatch.Stop();
     Console.WriteLine("Hashing Sha256 Execution Time: " + stopwatch.Elapsed);
@@ -45,19 +45,29 @@ public class PerformanceTesting
     stopwatch.Start();
     for (int i = 0; i < ITERATIONS; i++)
     {
-      HashFunctions.GetSha512Hash("Hello, World!");
+      CryptographicHashFunctions.GetSha512Hash("Hello, World!");
     }
     stopwatch.Stop();
     Console.WriteLine("Hashing Sha512 Execution Time: " + stopwatch.Elapsed);
 
-    // Test the performance of our Simple Hash
+    // Test the performance of Hashing by Multiplication
     stopwatch.Reset();
     stopwatch.Start();
     for (int i = 0; i < ITERATIONS; i++)
     {
-      HashFunctions.GetSimpleHash("Hello, World!");
+      CryptographicHashFunctions.GetHashByMultiplication("Hello, World!");
     }
     stopwatch.Stop();
-    Console.WriteLine("Hashing Simple Execution Time: " + stopwatch.Elapsed);
+    Console.WriteLine("Hashing by Multiplication Execution Time: " + stopwatch.Elapsed);
+
+    // Test the performance of Hashing by Division
+    stopwatch.Reset();
+    stopwatch.Start();
+    for (int i = 0; i < ITERATIONS; i++)
+    {
+      CryptographicHashFunctions.GetHashByDivision("Hello, World!");
+    }
+    stopwatch.Stop();
+    Console.WriteLine("Hashing by Division Execution Time: " + stopwatch.Elapsed);
   }
 }
