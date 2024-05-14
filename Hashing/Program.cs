@@ -1,36 +1,31 @@
-﻿PerformanceTesting.RunAllHashFunctions();
+﻿using System;
 
-while (true)
+class Program
 {
-  Console.WriteLine("Enter the string to hash:");
-  string? input = Console.ReadLine();
-  if (string.IsNullOrEmpty(input))
+  static void Main(string[] args)
   {
-    break;
+    // Size of the hash table
+    int size = 79;
+
+    DivisionHash divisionHash = new DivisionHash(size);
+    MultiplicationHash multiplicationHash = new MultiplicationHash(size);
+
+    int[] keys = { 1, 2, 3, 10, 43, 79, 255, 1986, 324, 1425, 509, 628, 777, 891, 101 };
+
+    // Test Division Hashing
+    Console.WriteLine("Division Hashing Results:");
+    foreach (int key in keys)
+    {
+      Console.WriteLine($"Key: {key} -> Hash: {divisionHash.Hash(key)}");
+    }
+
+    Console.WriteLine("\n--------------------------------------------------\n");
+
+    // Test Multiplication Hashing
+    Console.WriteLine("Multiplication Hashing Results:");
+    foreach (int key in keys)
+    {
+      Console.WriteLine($"Key: {key} -> Hash: {multiplicationHash.Hash(key)}");
+    }
   }
-
-
-  // MD5 Hashing
-  string md5Hash = CryptographicHashFunctions.GetMd5Hash(input);
-  Console.WriteLine($"MD5 Hash:    {md5Hash}");
-
-  // SHA1 Hashing
-  string sha1Hash = CryptographicHashFunctions.GetSha1Hash(input);
-  Console.WriteLine($"SHA1 Hash:   {sha1Hash}");
-
-  // SHA256 Hashing
-  string sha256Hash = CryptographicHashFunctions.GetSha256Hash(input);
-  Console.WriteLine($"SHA256 Hash: {sha256Hash}");
-
-  // SHA512 Hashing
-  string sha512Hash = CryptographicHashFunctions.GetSha512Hash(input);
-  Console.WriteLine($"SHA512 Hash: {sha512Hash}");
-
-  // Hashing By Division
-  string divisionHash = CryptographicHashFunctions.GetHashByDivision(input);
-  Console.WriteLine($"Hash By Division: {divisionHash}");
-
-  // Hashing By Multiplication
-  string multiplicationHash = CryptographicHashFunctions.GetHashByMultiplication(input);
-  Console.WriteLine($"Hash By Multiplication: {multiplicationHash}");
 }

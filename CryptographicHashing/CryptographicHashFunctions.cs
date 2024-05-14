@@ -49,17 +49,10 @@ public class CryptographicHashFunctions
     }
   }
 
-public static string GetHashByDivision(string input)
+  
+  public static string GetSimpleHash(string input)
   {
-    using (HashingByDivision simpleHash = new HashingByDivision())
-    {
-      return ComputeHash(input, simpleHash);
-    }
-  }
-
-  public static string GetHashByMultiplication(string input)
-  {
-    using (HashingByMultiplication simpleHash = new HashingByMultiplication())
+    using (SimpleHash simpleHash = new SimpleHash())
     {
       return ComputeHash(input, simpleHash);
     }

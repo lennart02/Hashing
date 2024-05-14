@@ -50,24 +50,14 @@ public class PerformanceTesting
     stopwatch.Stop();
     Console.WriteLine("Hashing Sha512 Execution Time: " + stopwatch.Elapsed);
 
-    // Test the performance of Hashing by Multiplication
+    // Test the performance of our Simple Hash
     stopwatch.Reset();
     stopwatch.Start();
     for (int i = 0; i < ITERATIONS; i++)
     {
-      CryptographicHashFunctions.GetHashByMultiplication("Hello, World!");
+      CryptographicHashFunctions.GetSimpleHash("Hello, World!");
     }
     stopwatch.Stop();
-    Console.WriteLine("Hashing by Multiplication Execution Time: " + stopwatch.Elapsed);
-
-    // Test the performance of Hashing by Division
-    stopwatch.Reset();
-    stopwatch.Start();
-    for (int i = 0; i < ITERATIONS; i++)
-    {
-      CryptographicHashFunctions.GetHashByDivision("Hello, World!");
-    }
-    stopwatch.Stop();
-    Console.WriteLine("Hashing by Division Execution Time: " + stopwatch.Elapsed);
+    Console.WriteLine("Hashing Simple Execution Time: " + stopwatch.Elapsed);
   }
 }

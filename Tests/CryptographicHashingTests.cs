@@ -59,4 +59,17 @@ public class CryptographicHashingTests
     Assert.AreEqual(expectedHash, actualHash);
   }
 
+  [TestMethod]
+  public void TestSimpleHash()
+  {
+    // Arrange
+    string input = "Hello, World!";
+    string expectedHash = "6904";
+
+    // Act
+    string actualHash = CryptographicHashFunctions.GetSimpleHash(input);
+
+    // Assert
+    Assert.AreEqual(expectedHash, actualHash);
+  }
 }

@@ -31,8 +31,8 @@ public class HashCollisionTests
 
       // Act
       // Apply the hashing algorithm to both inputs
-      hash1 = HashFunctions.GetSimpleHash(input1.ToString());
-      hash2 = HashFunctions.GetSimpleHash(input2.ToString());
+      hash1 = CryptographicHashFunctions.GetSimpleHash(input1.ToString());
+      hash2 = CryptographicHashFunctions.GetSimpleHash(input2.ToString());
       Console.WriteLine($"No Collision found: {hash1} != {hash2}");
 
     } while (hash1 != hash2);
