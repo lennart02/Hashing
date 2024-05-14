@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-HashTableBase ht = new HashTableLinearProbing(2);
+//Example usage of the HashTable
+HashTableBase ht = new HashTableLinearProbing(10);
 ht.Insert(10, "Hello");
 ht.Insert(20, "World");
 ht.Insert(5, "Test");
@@ -16,10 +17,10 @@ ht.Insert(135, "Kollision");
 Console.WriteLine(ht);
 
 
+//Benchmarking the HashTable implementations
 HashTableBase linear = new HashTableLinearProbing(11);
 HashTableBase quadratic = new HashTableQuadraticProbing(11);
 HashTableBase doubleHashing = new HashTableDoubleHashing(11);
-
 
 TimeSpan BenchmarkTime(HashTableBase hashTable)
 {
