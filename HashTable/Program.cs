@@ -1,4 +1,7 @@
-﻿HashTableBase ht = new HashTableLinearProbing(2);
+﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
+
+HashTableBase ht = new HashTableLinearProbing(2);
 ht.Insert(10, "Hello");
 ht.Insert(20, "World");
 ht.Insert(5, "Test");
@@ -10,14 +13,32 @@ ht.Insert(230, "World");
 ht.Insert(53, "Test");
 ht.Insert(135, "Kollision");
 
+Console.WriteLine(ht);
 
 
-Console.WriteLine(ht); 
+HashTableBase linear = new HashTableLinearProbing(11);
+HashTableBase quadratic = new HashTableQuadraticProbing(11);
+HashTableBase doubleHashing = new HashTableDoubleHashing(11);
 
-HashTableBase ht2 = new HashTableLinearProbing(2);
 
-for (int i = 0; i < 10_000_000; i++)
+TimeSpan BenchmarkTime(HashTableBase hashTable)
 {
-  ht2.Insert(i, "");
+  Stopwatch stopwatch = new Stopwatch();
+  stopwatch.Start();
+  for (int i = 0; i < 1_000_000; i++)
+  {
+    Random random = new Random();
+    hashTable.Insert(random.Next(), i.ToString());
+  }
+
+  stopwatch.Stop();
+  return stopwatch.Elapsed;
 }
 
+TimeSpan linearTime = BenchmarkTime(linear);
+TimeSpan quadraticTime = BenchmarkTime(quadratic);
+TimeSpan doubleHashingTime = BenchmarkTime(doubleHashing);
+
+Console.WriteLine("Linear Probing Execution Time: " + linearTime);
+Console.WriteLine("Quadratic Probing Execution Time: " + quadraticTime);
+Console.WriteLine("Double Hashing Execution Time: " + doubleHashingTime);

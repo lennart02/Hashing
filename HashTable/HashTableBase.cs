@@ -5,6 +5,7 @@ public abstract class HashTableBase
 {
   private KeyValuePair<int, string>?[] table;
   protected int size;
+  protected int count;
 
   public HashTableBase(int size)
   {
@@ -25,17 +26,30 @@ public abstract class HashTableBase
     return result;
   }
 
+  /// <summary>
+  /// Probing function to calculate the next index. Can be overridden by subclasses
+  /// </summary>
+  public abstract int ProbingFunction(int j, int k);
+
+  /// <summary>
+  /// Hash function to calculate the index
+  /// </summary>
   protected int Hash(int key)
   {
-    // MultiplicationHash multiplicationHash = new MultiplicationHash(size);
-    // return multiplicationHash.Hash(key);
-
     DivisionHash divisionHash = new DivisionHash(size);
     return divisionHash.Hash(key);
+
+    // MultiplicationHash multiplicationHash = new MultiplicationHash(size);
+    // return multiplicationHash.Hash(key);
   }
 
+  /// <summary>
+  /// Inserts the key and value into the hash table
+  /// </summary>
   public void Insert(int key, string value)
   {
+    CheckLoadFactor();
+
     int index = Hash(key);
     int counter = 0;
 
@@ -47,11 +61,25 @@ public abstract class HashTableBase
         table[index] = new KeyValuePair<int, string>(key, value);
         return;
       }
-      index = (key + ProbingFunction(counter, index)) % size;
-      if (counter == size) HandleTableFull();
+      index = (int)((key + (long)ProbingFunction(counter, index)) % size);
+      if (counter == size)
+      {
+        Console.Write("Table is full. Initializing rehashing... ");
+        HandleTableFull();
+      }
     }
-
+    count++;
     table[index] = new KeyValuePair<int, string>(key, value);
+  }
+
+  private void CheckLoadFactor()
+  {
+    double loadFactor = (double)count / size;
+    // If the load factor is greater than this specific value, rehash the table
+    if (loadFactor > 0.75)
+    {
+      HandleTableFull();
+    }
   }
 
   //Efficient prime number check
@@ -67,9 +95,12 @@ public abstract class HashTableBase
     return true;
   }
 
-  public void HandleTableFull()
+
+  /// <summary>
+  /// This triggers to rehash the table
+  /// </summary>
+  private void HandleTableFull()
   {
-    Console.WriteLine("Table is full. Initializing rehashing...");
     //Rehashing with doubling and getting the next prime number
     size *= 2;
     while (!IsPrime(size))
@@ -90,38 +121,47 @@ public abstract class HashTableBase
     Console.WriteLine("Rehashing completed. New table size: " + size);
   }
 
-  public abstract int ProbingFunction(int j, int k);
 
-
+  /// <summary>
+  /// Searches for the key in the hash table
+  /// </summary>
   public string? Search(int key)
   {
     int index = Hash(key);
-    int startIndex = index;
+    int counter = 0;
 
     while (table[index] != null)
     {
+      counter++;
       if (table[index]?.Key == key)
         return table[index]?.Value;
-      index = (index + 1) % size;
-      if (index == startIndex) return null;
+      index = (int)((key + (long)ProbingFunction(counter, index)) % size);
+
+      if (counter == size) return null;
     }
     return null;
   }
 
+  /// <summary>
+  /// Deletes the key from the hash table
+  /// </summary>
   public bool Delete(int key)
   {
     int index = Hash(key);
-    int startIndex = index;
+    int counter = 0;
 
     while (table[index] != null)
     {
+      counter++;
       if (table[index]?.Key == key)
       {
         table[index] = null;
+        count--;
         return true;
       }
-      index = (index + 1) % size;
-      if (index == startIndex) return false;
+      index = (int)((key + (long)ProbingFunction(counter, index)) % size);
+
+      if (counter == size) return false;
     }
     return false;
   }
