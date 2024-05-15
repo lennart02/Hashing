@@ -1,23 +1,36 @@
 # Hash Function Demonstration
 
-This repository is made for educational purposes. I tested and played with Hash functions in different programming languages.
+This repository is created for educational purposes, showcasing experiments with hash functions in C#.
 
 ## Project Overview
 
-The project consists of the following examples:
-####  Cryptographic Hashing
+The repository includes the following projects:
 
-This C# application demonstrates the functionality and performance of various hash functions. It's designed as a learning tool for understanding how different hashing algorithms like MD5, SHA1, SHA256, SHA512, and a simple additive hash process input data to produce fixed-size outputs. The project focuses on showcasing the basic properties of these hash functions, including their security aspects and performance metrics.
+### Hashing
+A simple implementation of Multiplication Hashing and Division Hashing.
 
-#### Python
-Here is one example of two different images, that have the same image. This shows how collission can occur on completely different data.
+### HashTable
+A comprehensive implementation of a Hashtable using Division Hashing, including insert, delete, and search operations. Examples of Linear Probing, Quadratic Probing, and Double Hashing are provided. It also comes with dynamic resizing through rehashing.
 
+### Cryptographic Hashing
+This C# application demonstrates the functionality and performance of various cryptographic hash functions, such as MD5, SHA1, SHA256, SHA512. Additionally, I added a simple additive hash, that processes input data to produce fixed-size outputs. 
+
+
+|           | MD5 | SHA1 | SHA256 | SHA512 | Simple Hash |
+|-----------|-----|------|--------|--------|-------------|
+| Bit Size  | 128 | 160  | 256    | 512    | 16          |
+
+
+
+### Tests
+Includes various tests for the hash functions and hash table implementations.
+
+### Docs
+A collection of [Drawio](https://draw.io) diagrams is stored here.
 
 ## Usage
-
-Follow the on-screen prompts to input text. The application will display the resulting hashes and performance data for all implemented hashing algorithms.
+These projects demonstrate basic hashing concepts. They can be executed directly. It is recommended to modify `Program.cs` to test different examples and gain a deeper understanding.
 
 ## License
 
 This project is released under the MIT License - see the [LICENSE](LICENSE.md) file for details.
-
