@@ -15,5 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Hashing\Hashing.csproj" />
     <ProjectReference Include="..\CryptographicHashing\CryptographicHashing.csproj" />
+    <ProjectReference Include="..\HashTable\HashTable.csproj" />
   </ItemGroup>
 </Project>
