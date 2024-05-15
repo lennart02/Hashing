@@ -56,6 +56,7 @@ public abstract class HashTableBase
     while (table[index] != null)
     {
       counter++;
+      // If the key already exists, update the value
       if (table[index]?.Key == key)
       {
         table[index] = new KeyValuePair<int, string>(key, value);
@@ -68,6 +69,7 @@ public abstract class HashTableBase
         HandleTableFull();
       }
     }
+    // Insert the key-value pair at the hashed index
     count++;
     table[index] = new KeyValuePair<int, string>(key, value);
   }
