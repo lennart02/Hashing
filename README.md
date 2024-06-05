@@ -43,6 +43,7 @@ The script currently supports three hash functions:
 2. `hashByDivision(key, tableSize)`: A hash function that uses the modulo operator to map the `key` to a value within the `tableSize`.
 3. `hashByMultiplication(key, tableSize)`: A hash function that uses the multiplication method to map the `key` to a value within the `tableSize`.
 
+![Hash by Division](hashByDivision.png) ![Hash by Multiplication](hashByMultiplication.png)
 
 Feel free to experiment with different values and hash functions to see how the scattering of hash values changes.
 

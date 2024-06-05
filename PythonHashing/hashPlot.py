@@ -21,11 +21,11 @@ def hashByMultiplication(key, tableSize):
     return math.floor(tableSize * ((key * A) % 1))
 
 
-# Random values
-x = np.random.randint(1, 1000, 10000)
+# 1000 Random values von 1 to 1000
+x = np.random.randint(1, 1000, 1000)
 # Hashtable size 
 y = 100
-
+# x axis is the key values, y axis is the hash values
 # Plot the 3 hash functions 
 hashPlot(hashFunc, x, y)
 hashPlot(hashByDivision, x, y)
